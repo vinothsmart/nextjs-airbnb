@@ -8,10 +8,19 @@ type Tour = {
   price: string;
 };
 
-async function ToursPage() {
+const fetchTours = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 3000)); // Simulate a delay
   const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error("Failed to fetch tours");
+  }
   const data: Tour[] = await response.json();
-  console.log(data);
+  return data;
+};
+
+async function ToursPage() {
+  const data = await fetchTours();
+
   return (
     <section>
       <h1 className="text-3xl mb-4">Tours</h1>
