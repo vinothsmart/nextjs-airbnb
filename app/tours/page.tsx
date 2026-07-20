@@ -11,9 +11,6 @@ type Tour = {
 const fetchTours = async () => {
   await new Promise((resolve) => setTimeout(resolve, 3000)); // Simulate a delay
   const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error("Failed to fetch tours");
-  }
   const data: Tour[] = await response.json();
   return data;
 };
