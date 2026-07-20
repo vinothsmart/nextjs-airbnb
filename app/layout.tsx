@@ -1,8 +1,10 @@
 import NavBar from "@/components/Navbar";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Inconsolata } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
+const inconsolata = Inconsolata({ subsets: ["latin"] });
+
 export default function RootLayout({
   children,
 }: {
@@ -10,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gray-100 min-h-screen`}>
+      <body className={`${inconsolata.className} bg-gray-100 min-h-screen`}>
         <NavBar />
         <main className="max-w-3xl mx-auto py-10">{children}</main>
       </body>
